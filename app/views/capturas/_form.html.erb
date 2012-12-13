@@ -1,0 +1,49 @@
+<%= form_for(@captura) do |f| %>
+  <% if @captura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@captura.errors.count, "error") %> prohibited this captura from being saved:</h2>
+
+      <ul>
+      <% @captura.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :curt %><br />
+    <%= f.text_field :curt %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :comentario %><br />
+    <%= f.text_area :comentario %>
+  </div>
+  <div class="field">
+    <%= f.label :fase %><br />
+    <%= f.text_field :fase %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario %><br />
+    <%= f.text_field :usuario %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :alcance %><br />
+    <%= f.text_field :alcance %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,130 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Curt:</b>
+  <%= @tienda.curt %>
+</p>
+
+<p>
+  <b>Cadena:</b>
+  <%= @tienda.cadena %>
+</p>
+
+<p>
+  <b>Formato:</b>
+  <%= @tienda.formato %>
+</p>
+
+<p>
+  <b>Tienda:</b>
+  <%= @tienda.tienda %>
+</p>
+
+<p>
+  <b>Determinante:</b>
+  <%= @tienda.determinante %>
+</p>
+
+<p>
+  <b>Imagen:</b>
+  <%= @tienda.imagen %>
+</p>
+
+<p>
+  <b>Canal:</b>
+  <%= @tienda.canal %>
+</p>
+
+<p>
+  <b>Municipio:</b>
+  <%= @tienda.municipio %>
+</p>
+
+<p>
+  <b>Estado:</b>
+  <%= @tienda.estado %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%= @tienda.direccion %>
+</p>
+
+<p>
+  <b>Codigo postal:</b>
+  <%= @tienda.codigo_postal %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%= @tienda.area %>
+</p>
+
+<p>
+  <b>Region:</b>
+  <%= @tienda.region %>
+</p>
+
+<p>
+  <b>Status tienda:</b>
+  <%= @tienda.status_tienda %>
+</p>
+
+<p>
+  <b>Status registro:</b>
+  <%= @tienda.status_registro %>
+</p>
+
+<p>
+  <b>Precision:</b>
+  <%= @tienda.precision %>
+</p>
+
+<p>
+  <b>Latitud:</b>
+  <%= @tienda.latitud %>
+</p>
+
+<p>
+  <b>Longitud:</b>
+  <%= @tienda.longitud %>
+</p>
+
+<p>
+  <b>Serpel:</b>
+  <%= @tienda.serpel %>
+</p>
+
+<p>
+  <b>Miguel:</b>
+  <%= @tienda.miguel %>
+</p>
+
+<p>
+  <b>Comentario:</b>
+  <%= @tienda.comentario %>
+</p>
+
+<p>
+  <b>Fases:</b>
+  <%= @tienda.fases %>
+</p>
+
+<p>
+  <b>Responsable:</b>
+  <%= @tienda.responsable %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @tienda.fecha %>
+</p>
+
+<p>
+  <b>Alcance diageo:</b>
+  <%= @tienda.alcance_diageo %>
+</p>
+
+<%= gmaps4rails(@json) %>
+<%= link_to 'Edit', edit_tienda_path(@tienda) %> |
+<%= link_to 'Back', tiendas_path %>

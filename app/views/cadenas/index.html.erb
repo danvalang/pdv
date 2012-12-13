@@ -1,0 +1,31 @@
+<h1>Listing cadenas</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Pagina web</th>
+    <th>Actividad</th>
+    <th>Canales</th>
+    <th>Formato</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cadenas.each do |cadena| %>
+  <tr>
+    <td><%= cadena.nombre %></td>
+    <td><%= cadena.pagina_web %></td>
+    <td><%= cadena.actividad %></td>
+    <td><%= cadena.canales %></td>
+    <td><%= cadena.formato %></td>
+    <td><%= link_to 'Show', cadena %></td>
+    <td><%= link_to 'Edit', edit_cadena_path(cadena) %></td>
+    <td><%= link_to 'Destroy', cadena, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cadena', new_cadena_path %>

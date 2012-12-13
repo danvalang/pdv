@@ -1,0 +1,55 @@
+<h1>Listing tiendas</h1>
+
+<table>
+  <tr>
+    <th>Cadena</th>
+    <th>Formato</th>
+    <th>Tienda</th>
+    <th>Imagen</th>
+    <th>Canal</th>
+    <th>Direccion</th> 
+    <th>Municipio</th>
+    <th>Estado</th>
+    <th>Codigo postal</th>
+    <th>Area</th>
+    <th>Region</th>
+    <th>Precision</th>
+    <th>Latitud</th>
+    <th>Longitud</th>
+    <th>Comentario</th>
+    <th>Fases</th>
+    <th>Fecha</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tiendas.each do |tienda| %>
+  <tr>
+    <td><%= tienda.cadena %></td>
+    <td><%= tienda.formato %></td>
+    <td><%= tienda.tienda %></td>
+    <td><%= tienda.imagen %></td>
+    <td><%= tienda.canal %></td>
+    <td><%= tienda.direccion %></td>
+    <td><%= tienda.municipio %></td>
+    <td><%= tienda.estado %></td>
+    <td><%= tienda.codigo_postal %></td>
+    <td><%= tienda.area %></td>
+    <td><%= tienda.region %></td>
+    <td><%= tienda.precision %></td>
+    <td><%= tienda.latitud %></td>
+    <td><%= tienda.longitud %></td>
+    <td><%= tienda.comentario %></td>
+    <td><%= tienda.fases %></td>
+    <td><%= tienda.fecha %></td>
+    <td><%= link_to 'Show', tienda %></td>
+    <td><%= link_to 'Edit', edit_tienda_path(tienda) %></td>
+    <td><%= link_to 'Destroy', tienda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tienda', new_tienda_path %>

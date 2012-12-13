@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @cadena.nombre %>
+</p>
+
+<p>
+  <b>Pagina web:</b>
+  <%= @cadena.pagina_web %>
+</p>
+
+<p>
+  <b>Actividad:</b>
+  <%= @cadena.actividad %>
+</p>
+
+<p>
+  <b>Canales:</b>
+  <%= @cadena.canales %>
+</p>
+
+<p>
+  <b>Formato:</b>
+  <%= @cadena.formato %>
+</p>
+
+
+<%= link_to 'Edit', edit_cadena_path(@cadena) %> |
+<%= link_to 'Back', cadenas_path %>

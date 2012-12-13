@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  curt: 1
+  cadena: MyText
+  formato: MyText
+  tienda: MyString
+  determinante: 1
+  imagen: MyString
+  canal: MyText
+  municipio: MyText
+  estado: MyString
+  direccion: MyText
+  codigo_postal: 1
+  area: MyString
+  region: MyString
+  status_tienda: MyString
+  status_registro: MyString
+  precision: MyString
+  latitud: 1.5
+  longitud: 1.5
+  serpel: MyString
+  miguel: MyString
+  comentario: MyText
+  fases: MyString
+  responsable: MyString
+  fecha: 2012-12-03 15:27:40
+  alcance_diageo: MyString
+
+two:
+  curt: 1
+  cadena: MyText
+  formato: MyText
+  tienda: MyString
+  determinante: 1
+  imagen: MyString
+  canal: MyText
+  municipio: MyText
+  estado: MyString
+  direccion: MyText
+  codigo_postal: 1
+  area: MyString
+  region: MyString
+  status_tienda: MyString
+  status_registro: MyString
+  precision: MyString
+  latitud: 1.5
+  longitud: 1.5
+  serpel: MyString
+  miguel: MyString
+  comentario: MyText
+  fases: MyString
+  responsable: MyString
+  fecha: 2012-12-03 15:27:40
+  alcance_diageo: MyString

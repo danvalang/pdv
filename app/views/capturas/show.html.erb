@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Curt:</b>
+  <%= @captura.curt %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @captura.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @captura.longitude %>
+</p>
+
+<p>
+  <b>Comentario:</b>
+  <%= @captura.comentario %>
+</p>
+
+<p>
+  <b>Fase:</b>
+  <%= @captura.fase %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @captura.usuario %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @captura.fecha %>
+</p>
+
+<p>
+  <b>Alcance:</b>
+  <%= @captura.alcance %>
+</p>
+
+
+<%= link_to 'Edit', edit_captura_path(@captura) %> |
+<%= link_to 'Back', capturas_path %>

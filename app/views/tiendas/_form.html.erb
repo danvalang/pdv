@@ -1,0 +1,101 @@
+<%= form_for(@tienda) do |f| %>
+  <% if @tienda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tienda.errors.count, "error") %> prohibited this tienda from being saved:</h2>
+
+      <ul>
+      <% @tienda.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :curt %><br />
+    <%= @tienda.curt %>
+  </div>
+  <div class="field">
+    <%= f.label :cadena %><br />
+    <%= @tienda.cadena %>
+  </div>
+  <div class="field">
+    <%= f.label :formato %><br />
+    <%= @tienda.formato %>
+  </div>
+  <div class="field">
+    <%= f.label :tienda %><br />
+    <%= @tienda.tienda %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :canal %><br />
+    <%= @tienda.canal %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br />
+    <%= @tienda.direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :municipio %><br />
+    <%= @tienda.municipio %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br />
+    <%= @tienda.estado %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_postal %><br />
+    <%= @tienda.codigo_postal %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br />
+    <%= @tienda.area %>
+  </div>
+  <!-- <div class="field">
+    <%= f.label :region %><br />
+    <%= f.text_field :region %>
+  </div> -->
+<!--   <div class="field">
+    <%= f.label :status_tienda %><br />
+    <%= f.text_field :status_tienda %>
+  </div>
+  <div class="field">
+    <%= f.label :status_registro %><br />
+    <%= f.text_field :status_registro %>
+  </div> -->
+  <div class="field">
+    <%= f.label :precision %><br />
+    <%= f.select :precision, options_for_select(Tienda::PRECISION) %>
+  </div>
+  <div class="field">
+    <%= f.label :latitud %><br />
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
+    <%= f.label :longitud %><br />
+    <%= f.text_field :longitud %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comentario %><br />
+    <%= f.text_area :comentario %>
+  </div>
+  <div class="field">
+    <%= f.label :fases %><br />
+    <%= @tienda.fases %>
+  </div>
+  <div class="field">
+    <%= f.label :responsable %><br />
+    <%= @tienda.responsable %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.datetime_select :fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <%= gmaps4rails(@json) %>
+<% end %>

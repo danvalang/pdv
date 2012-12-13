@@ -1,0 +1,37 @@
+<%= form_for(@cadena) do |f| %>
+  <% if @cadena.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cadena.errors.count, "error") %> prohibited this cadena from being saved:</h2>
+
+      <ul>
+      <% @cadena.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :pagina_web %><br />
+    <%= f.text_field :pagina_web %>
+  </div>
+  <div class="field">
+    <%= f.label :actividad %><br />
+    <%= f.text_field :actividad %>
+  </div>
+  <div class="field">
+    <%= f.label :canales %><br />
+    <%= f.text_field :canales %>
+  </div>
+  <div class="field">
+    <%= f.label :formato %><br />
+    <%= f.text_field :formato %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

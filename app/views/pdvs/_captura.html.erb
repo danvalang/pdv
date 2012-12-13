@@ -1,0 +1,17 @@
+<%= form_for(@pdv.captura || Captura.new(curt: @pdv.curt, latitude: @pdv.latitude, longitude: @pdv.longitude)) do |c| %>
+
+  <div class="field">
+    <%= c.label "latitud" %><br />
+    <%= c.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= c.label "longitud" %><br />
+    <%= c.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= c.label :comentario %><br />
+    <%= c.text_area :comentario %>
+  </div>
+
+
+<% end %>

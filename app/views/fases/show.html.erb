@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @fase.fecha %>
+</p>
+
+<p>
+  <b>Fase:</b>
+  <%= @fase.fase %>
+</p>
+
+<p>
+  <b>Responsable:</b>
+  <%= @fase.responsable %>
+</p>
+
+<p>
+  <b>Encontradas:</b>
+  <%= @fase.encontradas %>
+</p>
+
+<p>
+  <b>Tiempo invertido:</b>
+  <%= @fase.tiempo_invertido %>
+</p>
+
+<p>
+  <b>Minutos consumidos:</b>
+  <%= @fase.minutos_consumidos %>
+</p>
+
+<p>
+  <b>Costo:</b>
+  <%= @fase.costo %>
+</p>
+
+<p>
+  <b>Comentario:</b>
+  <%= @fase.comentario %>
+</p>
+
+
+<%= link_to 'Edit', edit_fase_path(@fase) %> |
+<%= link_to 'Back', fases_path %>

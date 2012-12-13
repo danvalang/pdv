@@ -1,0 +1,116 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @pdv.id %>
+</p>
+
+<p>
+  <b>Curt:</b>
+  <%= @pdv.curt %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @pdv.nombre %>
+</p>
+
+<p>
+  <b>Calle:</b>
+  <%= @pdv.calle %>
+</p>
+
+<p>
+  <b>No exterior:</b>
+  <%= @pdv.no_exterior %>
+</p>
+
+<p>
+  <b>No interior:</b>
+  <%= @pdv.no_interior %>
+</p>
+
+<p>
+  <b>Colonia:</b>
+  <%= @pdv.colonia %>
+</p>
+
+<p>
+  <b>Cp:</b>
+  <%= @pdv.cp %>
+</p>
+
+<p>
+  <b>Ref 1:</b>
+  <%= @pdv.ref_1 %>
+</p>
+
+<p>
+  <b>Ref 2:</b>
+  <%= @pdv.ref_2 %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @pdv.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @pdv.longitude %>
+</p>
+
+<p>
+  <b>Precision:</b>
+  <%= @pdv.precision %>
+</p>
+
+<p>
+  <b>Municipio:</b>
+  <%= @pdv.municipio.nombre %>
+</p>
+<p>
+  <b>Estado</b>
+  <%= Estado.find(@pdv.municipio.id_estado).nombre %>
+
+</p>
+
+<p>
+  <b>Cadena:</b>
+  <%= @pdv.cadena %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @pdv.status %>
+</p>
+
+<p>
+  <b>Telefono 1:</b>
+  <%= @pdv.telefono_1 %>
+</p>
+
+<p>
+  <b>Telefono 2:</b>
+  <%= @pdv.telefono_2 %>
+</p>
+
+<p>
+  <b>Ciudad:</b>
+  <%= @pdv.ciudad %>
+</p>
+
+<p>
+  <b>Status reg:</b>
+  <%= @pdv.status_reg %>
+</p>
+
+<p>
+  <b>Captura:</b>
+  <%= @pdv.captura %>
+</p>
+<%= @pdv.geocodificacion %>
+<%= gmaps4rails(@json) %>
+
+<%= link_to 'Edit', edit_pdv_path(@pdv) %> |
+<%= link_to 'Back', pdvs_path %>

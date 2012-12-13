@@ -1,0 +1,86 @@
+<%= form_for(@pdv) do |f| %>
+  <% if @pdv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pdv.errors.count, "error") %> prohibited this pdv from being saved:</h2>
+
+      <ul>
+      <% @pdv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= @pdv.id %>
+  </div>
+  <div class="field">
+    <%= f.label :curt %><br />
+    <%= @pdv.curt %>
+  </div>
+   <div class="field">
+    <%= f.label "Direccion" %><br />
+    <%= @pdv.geocodificacion %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_1 %><br />
+    <%= @pdv.ref_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_2 %><br />
+    <%= @pdv.ref_2 %>
+  </div>
+ 
+
+  <div class="field">
+    <%= f.label :cadena %><br />
+    <%= @pdv.cadena %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= @pdv.status %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_1 %><br />
+    <%= @pdv.telefono_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_2 %><br />
+    <%= @pdv.telefono_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br />
+    <%= @pdv.ciudad %>
+  </div>
+  <div class="field">
+    <%= f.label :status_reg %><br />
+    
+    <%=  @pdv.status_reg unless current_user.is_admin?  %>
+    <%=  f.text_field :status_reg if current_user.is_admin? %>
+  </div>
+  <div class="field">
+    <%= f.label :captura %><br />
+    <%= @pdv.captura %>
+  </div>
+  <!--  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div> -->
+  <div class="field">
+    <%= f.label :precision %><br />
+    <%= f.text_field :precision %>
+  </div>
+  <%= render 'captura' %>
+   <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <%= gmaps4rails(@json) %>
+
+<% end %>
