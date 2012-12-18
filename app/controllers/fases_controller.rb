@@ -25,6 +25,7 @@ class FasesController < ApplicationController
   # GET /fases/new.json
   def new
     @fase = Fase.new
+    # @pdv = Pdv.
 
     respond_to do |format|
       format.html # new.html.erb

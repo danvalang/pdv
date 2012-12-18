@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"estad",
+				"estado"
+			],
+			[
+				"pdv",
+				"pdvs"
+			],
+			[
 				"statu",
 				"status_reg"
 			],
@@ -136,10 +144,26 @@
 	"buffers":
 	[
 		{
-			"file": "config/routes.rb",
+			"file": "app/models/fase.rb",
 			"settings":
 			{
-				"buffer_size": 2457,
+				"buffer_size": 240,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/pdv.rb",
+			"settings":
+			{
+				"buffer_size": 1238,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/fases_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1884,
 				"line_ending": "Unix"
 			}
 		}
@@ -300,20 +324,20 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/models/captura.rb",
+		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/views/fases/_form.html.erb",
+		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/controllers/fases_controller.rb",
+		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/config/routes.rb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/models/fase.rb",
 		"/C/Users/Administrador/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/controllers/application_controller.rb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/controllers/pdvs_controller.rb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/models/pdv.rb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/views/pdvs/_form.html.erb",
-		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/config/routes.rb",
-		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/controllers/fases_controller.rb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/views/fases/edit.html.erb",
-		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/views/fases/_form.html.erb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/models/estado.rb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/views/estados/show.html.erb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/models/municipio.rb",
-		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/models/captura.rb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/controllers/users_controller.rb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/views/pdvs/index.html.erb",
 		"/C/Users/Administrador/xampp/htdocs/Sites/pdvdiageos/app/views/sessions/new.html.erb",
@@ -441,6 +465,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"	",
 			"f.",
 			"nombre",
 			"captura",
@@ -473,6 +498,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			",",
 			"c.",
 			"@pdv.",
 			"belongs_to",
@@ -508,18 +534,254 @@
 			[
 				{
 					"buffer": 0,
-					"file": "config/routes.rb",
+					"file": "app/models/fase.rb",
 					"settings":
 					{
-						"buffer_size": 2457,
+						"buffer_size": 240,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								575,
-								575
+								227,
+								227
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/Ruby on Rails snippets/Ruby on Rails.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/models/pdv.rb",
+					"settings":
+					{
+						"buffer_size": 1238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1185,
+								1185
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/Ruby on Rails snippets/Ruby on Rails.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/controllers/fases_controller.rb",
+					"settings":
+					{
+						"buffer_size": 1884,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								767,
+								767
 							]
 						],
 						"settings":
@@ -662,6 +924,10 @@
 	"output.exec":
 	{
 		"height": 118.0
+	},
+	"output.git":
+	{
+		"height": 94.0
 	},
 	"output.sftp":
 	{
