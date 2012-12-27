@@ -25,7 +25,7 @@ class FasesController < ApplicationController
   # GET /fases/new.json
   def new
     @fase = Fase.new
-    # @pdv = Pdv.
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +45,8 @@ class FasesController < ApplicationController
 
     respond_to do |format|
       if @fase.save
-        format.html { redirect_to @fase, notice: 'Fase was successfully created.' }
+        @fase.asignar
+        format.html { redirect_to @fase, notice: 'Fase fue creada.' }
         format.json { render json: @fase, status: :created, location: @fase }
       else
         format.html { render action: "new" }

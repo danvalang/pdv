@@ -42,17 +42,19 @@ ActiveRecord::Schema.define(:version => 20121212073715) do
     t.string  "latitude",   :limit => 11
     t.string  "longitude",  :limit => 13
     t.text    "comentario"
-    t.integer "id_fase"
+    t.integer "fase_id"
     t.string  "fase",       :limit => 12
-    t.string  "usuario",    :limit => 8
     t.string  "fecha",      :limit => 10
     t.string  "alcance",    :limit => 2
+    t.time    "tiempo"
+    t.integer "pdv_id"
   end
 
   add_index "capturas", ["curt"], :name => "curt_3"
+  add_index "capturas", ["fase_id"], :name => "fase_id"
   add_index "capturas", ["id"], :name => "curt"
   add_index "capturas", ["id"], :name => "curt_2", :unique => true
-  add_index "capturas", ["id_fase"], :name => "id_fase"
+  add_index "capturas", ["pdv_id"], :name => "capturas_ibfk_3"
 
   create_table "estados", :force => true do |t|
     t.string "nombre",      :limit => 31
@@ -63,16 +65,18 @@ ActiveRecord::Schema.define(:version => 20121212073715) do
 
   create_table "fases", :force => true do |t|
     t.date    "fecha"
-    t.string  "fase",               :limit => 12
+    t.string  "nombre",             :limit => 12
     t.string  "responsable",        :limit => 8
     t.integer "encontradas"
     t.decimal "tiempo_invertido",                 :precision => 10, :scale => 9
     t.decimal "minutos_consumidos",               :precision => 10, :scale => 9
     t.decimal "costo",                            :precision => 11, :scale => 8
     t.text    "comentario"
+    t.integer "user_id"
   end
 
-  add_index "fases", ["fase"], :name => "fase"
+  add_index "fases", ["nombre"], :name => "fase"
+  add_index "fases", ["user_id"], :name => "user_id"
 
   create_table "formatos", :force => true do |t|
     t.string "nombre", :limit => 23
@@ -109,13 +113,13 @@ ActiveRecord::Schema.define(:version => 20121212073715) do
   end
 
   create_table "municipios", :primary_key => "ids", :force => true do |t|
-    t.string  "id",        :limit => 6
+    t.string  "id_inegi",  :limit => 6
     t.string  "nombre",    :limit => 49
     t.integer "id_estado"
   end
 
-  add_index "municipios", ["id"], :name => "id"
   add_index "municipios", ["id_estado"], :name => "id_estado"
+  add_index "municipios", ["id_inegi"], :name => "id_inegi"
 
   create_table "pdv_diageo", :primary_key => "curt", :force => true do |t|
     t.text      "cadena"
@@ -173,11 +177,14 @@ ActiveRecord::Schema.define(:version => 20121212073715) do
   create_table "users", :force => true do |t|
     t.string   "nombre"
     t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "password_digest"
     t.string   "auth_token"
     t.boolean  "is_admin"
+    t.string   "username",        :limit => 20, :null => false
   end
+
+  add_index "users", ["email"], :name => "email", :unique => true
 
 end

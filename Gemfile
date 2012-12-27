@@ -8,6 +8,14 @@ gem 'mysql2'
 # gem  'activerecord-mysql-adapter'
 gem 'bullet', :group => :development
 
+group :test,:development do 
+	gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+
+
+end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
