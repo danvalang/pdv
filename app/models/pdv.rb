@@ -6,9 +6,10 @@ class Pdv < ActiveRecord::Base
   has_one :captura
   has_one :fase, through: :captura
   validates :precision, inclusion: { in: ["exacta","aproximada"]}
+  PRECISION = ["exacta","aproximada"]
 
-  scope :asignar, joins(:captura,:municipio,municipio: :estado).where(latitude: nil).where(longitude: nil).order(municipio: :estado)
-  scope :asignadas, joins(:fase)#.where("fase.user_id = ?",current_user.id)
+  scope :asignar, lambda {|numero| joins(:captura).where(latitude: nil).where(longitude: nil).order(municipio: :estado).first(numero)}
+  scope :asignadas, lambda {|user, pagina| joins(:fase).where("fases.user_id = ?", user.id ).where(latitude: nil).where(longitude: nil).page(pagina) }
 
 
   attr_accessible :calle, :ciudad, :colonia, :cp, :curt, :id, :latitude, :longitude, :no_exterior, :no_interior, :nombre, :precision, :ref_1, :ref_2, :status, :status_reg, :telefono_1, :telefono_2, :estado, :is_admin
@@ -36,17 +37,23 @@ class Pdv < ActiveRecord::Base
     self.municipio.estado_nombre
 
   end
-  
-  def asignar_captura 
-    unless self.captura
-      c = Captura.create()
-      c.pdv_id = self.id
-      c.save
-    end
+
+  def asignar_captura (fase)
+    # unless self.captura
+      self.captura ||= Captura.create()
+      self.captura.pdv_id = self.id
+      self.captura.fase_id = fase.id
+      self.captura.fase = fase.nombre
+      self.captura.save
+    # end
   end
 
   def captura?
     true if self.captura || false
+  end
+
+  def commit
+    self.latitude, self.longitude = self.captura.latitude, self.captura.longitude
   end
 
 end

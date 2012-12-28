@@ -1,4 +1,5 @@
 <h1>Listing fases</h1>
+<%= paginate @fases %>
 
 <table>
   <tr>
@@ -18,7 +19,7 @@
 <% @fases.each do |fase| %>
   <tr>
     <td><%= fase.fecha %></td>
-    <td><%= fase.fase %></td>
+    <td><%= fase.nombre %></td>
     <td><%= fase.responsable %></td>
     <td><%= fase.encontradas %></td>
     <td><%= fase.tiempo_invertido %></td>

@@ -1,20 +1,18 @@
 class PdvsController < ApplicationController
-  before_filter  do 
-    unless current_user?
+  before_filter  do
 
-      redirect_to new_session_path, notice: "No logueado" unless current_user
-    else
-      # redirect_to fases_path if current_user.is_admin
+      redirect_to fases_path if current_user.is_admin
+      redirect_to new_session_path unless current_user
 
 
-    end
-  
   end
-      # GET /pdvs
+  # GET /pdvs
   # GET /pdvs.json
   def index
 
-    @pdvs = Pdv.poco.includes(:captura)
+
+
+    @pdvs = Pdv.includes(:cadena, :captura).asignadas(current_user, params[:page] )
 
     respond_to do |format|
       format.html # index.html.erb

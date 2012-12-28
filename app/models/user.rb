@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  belongs_to :fase
+  has_many :fase
   validates_presence_of :password, :on => :create
   attr_accessible :nombre,:password,:email,:password_confirmation
   attr_protected :is_admin
@@ -18,7 +18,15 @@ class User < ActiveRecord::Base
   end
 
   def all_usernames (*filtered_users)
-   filtered_users.all.collect {|user| user.username}
+   filtered_users.collect {|user| user.username}
+  end
+
+  def is_admin?
+    true if self.is_admin == 1
+  end
+
+  def to_s
+    nombre.camelcase
   end
 
   # def fill_up (name, password, email)

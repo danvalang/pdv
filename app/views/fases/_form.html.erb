@@ -16,15 +16,16 @@
     <%= f.date_select :fecha %>
   </div>
   <div class="field">
-    <%= f.label :fase %><br />
-    <%= f.text_field :fase %>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
   </div>
   <div class="field">
     <%= f.label :responsable %><br />
-    <%= f.text_field :responsable %>
+    <%= f.select :responsable, options_for_select(User.all) %>
+
   </div>
   <div class="field">
-    <%= f.label :encontradas %><br />
+    <%= f.label "Numero de PDV en la fase" %><br />
     <%= f.number_field :encontradas %>
   </div>
   <div class="field">
@@ -41,10 +42,6 @@
   </div>
   <div class="field">
     <%= f.label :comentario %><br />
-    <%= f.text_area :comentario %>
-  </div>
-    <div class="field">
-   <label>Numero de PDV a asignar</label><br />
     <%= f.text_area :comentario %>
   </div>
   <div class="actions">

@@ -74,7 +74,7 @@
   </div> -->
   <div class="field">
     <%= f.label :precision %><br />
-    <%= f.text_field :precision %>
+    <%= f.select :precision, options_for_select(Tienda::PRECISION) %>
   </div>
   <%= render 'captura' %>
    <div class="actions">

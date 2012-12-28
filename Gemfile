@@ -5,6 +5,7 @@ gem 'mongrel', '>=1.2.0.pre2'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'mysql2'
+gem 'kaminari'
 # gem  'activerecord-mysql-adapter'
 gem 'bullet', :group => :development
 

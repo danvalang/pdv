@@ -2,7 +2,7 @@ class FasesController < ApplicationController
   # GET /fases
   # GET /fases.json
   def index
-    @fases = Fase.all
+    @fases = Fase.order("fecha desc").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +25,7 @@ class FasesController < ApplicationController
   # GET /fases/new.json
   def new
     @fase = Fase.new
-    
+    @fase.fecha = Time.now
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +45,7 @@ class FasesController < ApplicationController
 
     respond_to do |format|
       if @fase.save
-        @fase.asignar
+        @fase.asignar 
         format.html { redirect_to @fase, notice: 'Fase fue creada.' }
         format.json { render json: @fase, status: :created, location: @fase }
       else
@@ -62,6 +62,7 @@ class FasesController < ApplicationController
 
     respond_to do |format|
       if @fase.update_attributes(params[:fase])
+         @fase.asignar 
         format.html { redirect_to @fase, notice: 'Fase was successfully updated.' }
         format.json { head :no_content }
       else
