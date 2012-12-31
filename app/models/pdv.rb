@@ -33,6 +33,11 @@ class Pdv < ActiveRecord::Base
     geocode
     self.save
   end
+  def asegurar
+    geocode unless (self.latitude? && self.longitude?)
+
+  end
+
   def estado
     self.municipio.estado_nombre
 
@@ -40,11 +45,11 @@ class Pdv < ActiveRecord::Base
 
   def asignar_captura (fase)
     # unless self.captura
-      self.captura ||= Captura.create()
-      self.captura.pdv_id = self.id
-      self.captura.fase_id = fase.id
-      self.captura.fase = fase.nombre
-      self.captura.save
+    self.captura ||= Captura.create()
+    self.captura.pdv_id = self.id
+    self.captura.fase_id = fase.id
+    self.captura.fase = fase.nombre
+    self.captura.save
     # end
   end
 

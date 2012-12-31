@@ -13,8 +13,8 @@ development:
   adapter: mysql2
   encoding: utf8
   database: pdv
-  username: test
-  password: can1t0
+  username: root
+  password: root
   host: 127.0.0.1
   port: 3306
 # 

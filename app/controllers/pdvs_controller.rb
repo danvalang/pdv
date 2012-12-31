@@ -1,11 +1,13 @@
 class PdvsController < ApplicationController
-  before_filter  do
+  before_filter :fases_redirect
 
+
+  def fases_redirect
+    if current_user
       redirect_to fases_path if current_user.is_admin
-      redirect_to new_session_path unless current_user
-
-
+    end
   end
+
   # GET /pdvs
   # GET /pdvs.json
   def index
@@ -26,7 +28,7 @@ class PdvsController < ApplicationController
   def show
 
     @pdv = Pdv.find(params[:id])
-    @pdv.asegurar
+    # @pdv.asegurar
     @json = @pdv.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb

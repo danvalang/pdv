@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
-gem 'mongrel', '>=1.2.0.pre2'
+gem 'rails'
+# gem 'mongrel', '>=1.2.0.pre2'
+gem 'rake','10.0.3'
+gem 'puma'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'mysql2'
@@ -11,9 +13,12 @@ gem 'bullet', :group => :development
 
 group :test,:development do 
 	gem "rspec-rails"
+end
+group :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
+  gem 'rspec'
 
 
 end

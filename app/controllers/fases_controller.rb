@@ -1,4 +1,13 @@
 class FasesController < ApplicationController
+
+
+  # before_filter :redir
+
+  # def redir
+  #   unless current_user.is_admin?
+  #     redirect_to pdvs_path
+  #   end
+  # end
   # GET /fases
   # GET /fases.json
   def index
@@ -45,7 +54,7 @@ class FasesController < ApplicationController
 
     respond_to do |format|
       if @fase.save
-        @fase.asignar 
+        @fase.asignar
         format.html { redirect_to @fase, notice: 'Fase fue creada.' }
         format.json { render json: @fase, status: :created, location: @fase }
       else
@@ -62,7 +71,7 @@ class FasesController < ApplicationController
 
     respond_to do |format|
       if @fase.update_attributes(params[:fase])
-         @fase.asignar 
+        @fase.asignar
         format.html { redirect_to @fase, notice: 'Fase was successfully updated.' }
         format.json { head :no_content }
       else
