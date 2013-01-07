@@ -61,7 +61,7 @@
   </div>
   <div class="field">
     <%= f.label :status_reg %><br />
-    <% if current_user.is_admin? %>
+    <% if current_user.is_admin %>
     <%= f.select :status_reg, options_for_select(Pdv::STATUSR)  %>
     <% else %>
     <%= @fase_pdv.status_reg %>

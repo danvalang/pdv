@@ -1,17 +1,20 @@
+<% if @fase_pdv.captura.presence %>
 <%= form_for(@fase_pdv.captura || Captura.new(curt: @fase_pdv.curt, latitude: @fase_pdv.latitude, longitude: @fase_pdv.longitude)) do |c| %>
 
   <div class="field">
-    <%= c.label "latitud" %><br />
-    <%= c.text_field :latitude %>
+  <%= c.label "latitud" %><br />
+  <%= c.text_field :latitude %>
   </div>
   <div class="field">
-    <%= c.label "longitud" %><br />
-    <%= c.text_field :longitude %>
+  <%= c.label "longitud" %><br />
+  <%= c.text_field :longitude %>
   </div>
   <div class="field">
-    <%= c.label :comentario %><br />
-    <%= c.text_area :comentario %>
+  <%= c.label :comentario %><br />
+  <%= c.text_area :comentario %>
   </div>
 
-
+<% end %>
+<% else %>
+<%= NO HAY CAPTURA %>
 <% end %>

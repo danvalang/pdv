@@ -43,6 +43,9 @@ class FasePdvsController < ApplicationController
     @fase_pdv = @fase.pdvs.find(params[:id])
     @fase_pdv.asegurar
     # @pdv.captura = Captura.new(curt: @pdv.curt) unless @pdv.captura.presence
+    # if 
+    # @fase_pdv.longitude ||= @fase_pdv.captura.longitude
+    # @fase_pdv.latitude ||= @fase_pdv.captura.latitude
     @json = @fase_pdv.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
@@ -55,6 +58,8 @@ class FasePdvsController < ApplicationController
   # PUT /pdvs/1.json
   def update
     @pdv = @fase.pdvs.find(params[:id])
+    @pdv.longitude = @pdv.captura.longitude
+    @pdv.latitude = @pdv.captura.latitude
 
     respond_to do |format|
       if @pdv.update_attributes(params[:pdv])

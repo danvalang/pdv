@@ -31,10 +31,12 @@ class Pdv < ActiveRecord::Base
   end
 
   def asegurar!
-    geocode
+    asegurar self
     self.save
   end
   def asegurar
+    self.latitude ||= self.captura.latitude
+    self.longitude ||= self.captura.longitude
     geocode unless (self.latitude? && self.longitude?)
 
   end
