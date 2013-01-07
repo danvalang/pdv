@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
   def require_login
     if current_user
       if current_user.is_admin
-        redirect_to fases_path
+        redirect_to fases
       else
-        redirect_to pdvs_path
+        redirect_to pdvs
       end
     end
   end
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
       if current_user.is_admin
         redirect_to fases_path, :notice => "Logged in!"
       else
-        redirect_to root_url, :notice => "Logged in!"
+        redirect_to pdvs_path, :notice => "Logged in!"
       end
     else
       flash.notice = "Invalid email or password"

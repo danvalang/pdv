@@ -20,9 +20,8 @@
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <% usur= User.all.map {|user| [ user.nombre, user.id]} %>
     <%= f.label :responsable %><br />
-    <%= f.select :responsable, options_for_select(usur) %>
+    <%= f.select :responsable, options_for_select(User.all.map {|user| [ user.nombre, user.id]}) %>
 
   </div>
   <div class="field">
