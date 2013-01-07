@@ -51,10 +51,12 @@ class FasesController < ApplicationController
   # POST /fases.json
   def create
     @fase = Fase.new(params[:fase])
+    # @fase.users 
+    @fase.asignar
 
     respond_to do |format|
       if @fase.save
-        @fase.asignar
+        
         format.html { redirect_to @fase, notice: 'Fase fue creada.' }
         format.json { render json: @fase, status: :created, location: @fase }
       else
@@ -68,10 +70,11 @@ class FasesController < ApplicationController
   # PUT /fases/1.json
   def update
     @fase = Fase.find(params[:id])
+    # @fase.users 
 
     respond_to do |format|
       if @fase.update_attributes(params[:fase])
-        @fase.asignar
+        # @fase.asignar
         format.html { redirect_to @fase, notice: 'Fase was successfully updated.' }
         format.json { head :no_content }
       else

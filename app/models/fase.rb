@@ -14,8 +14,9 @@ class Fase < ActiveRecord::Base
   	end
   end
 
-  def users
-  	self.user_id = User.where("nombre = ?",self.responsable)
+  def users 
+  	self.user_id = self.responsable
+    # self.responsable = User.find_by_id(self.responsable)
   end
 
 

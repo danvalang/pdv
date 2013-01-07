@@ -49,9 +49,9 @@ class Pdv < ActiveRecord::Base
   def asignar_captura (fase)
     # unless self.captura
     self.captura ||= Captura.create()
-    self.captura.pdv_id = self.id
-    self.captura.fase_id = fase.id
-    self.captura.fase = fase.nombre
+    # self.captura.pdv_id = self.id
+    # self.captura.fase_id = fase.id
+    self.captura.fase = fase
     self.captura.save
     # end
   end
