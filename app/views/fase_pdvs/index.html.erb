@@ -1,0 +1,66 @@
+
+
+<br><% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+<h1>Listing pdvs</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+
+    <th>Nombre</th>
+    <th>Estado</th>
+    <th>Calle</th>
+    <th>No exterior</th>
+    <th>No interior</th>
+    <th>Colonia</th>
+    <th>Cp</th>
+    <th>Ref 1</th>
+    <th>Ref 2</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Precision</th>
+    <th>Cadena</th>
+    <th>Status</th>
+    <th>Telefono 1</th>
+    <th>Telefono 2</th>
+    <th>Ciudad</th>
+    <th>Status reg</th>
+    <th>Captura</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fase_pdv.each do |pdv| %>
+  <tr>
+    <td><%= pdv.id %></td>
+
+    <td><%= pdv.nombre %></td>
+    <td><%= pdv.municipio.estado_nombre %></td>
+    <td><%= pdv.calle %></td>
+    <td><%= pdv.no_exterior %></td>
+    <td><%= pdv.no_interior %></td>
+    <td><%= pdv.colonia %></td>
+    <td><%= pdv.cp %></td>
+    <td><%= pdv.ref_1 %></td>
+    <td><%= pdv.ref_2 %></td>
+    <td><%= pdv.latitude %></td>
+    <td><%= pdv.longitude %></td>
+    <td><%= pdv.precision %></td>
+    <td><%= pdv.cadena %></td>
+    <td><%= pdv.status %></td>
+    <td><%= pdv.telefono_1 %></td>
+    <td><%= pdv.telefono_2 %></td>
+    <td><%= pdv.ciudad %></td>
+    <td><%= pdv.status_reg %></td>
+    <td><%= pdv.captura %></td>
+    <td><%= link_to 'Show', fase_fase_pdv_url(@fase, pdv)  %></td>
+    <td><%= link_to 'Edit', edit_fase_fase_pdv_url(@fase,pdv) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

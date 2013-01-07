@@ -32,6 +32,8 @@ Pdvdiageo::Application.routes.draw do
   resources :fases do
       resources :estados
       resources :cadenas
+      resources :fase_pdvs
+
     end
 
 
@@ -47,7 +49,7 @@ Pdvdiageo::Application.routes.draw do
 
   resources :tiendas
 
-  root :to => 'pdvs#index'
+  root :to => "sessions#new"
 
 
   # The priority is based upon order of creation:

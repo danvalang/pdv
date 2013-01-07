@@ -8,6 +8,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'mysql2'
 gem 'kaminari'
+gem 'blueprint-rails'
 # gem  'activerecord-mysql-adapter'
 gem 'bullet', :group => :development
 

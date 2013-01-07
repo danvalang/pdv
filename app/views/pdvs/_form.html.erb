@@ -12,9 +12,14 @@
   <% end %>
 
 
+  <%= render 'cadena' %>
   <div class="field">
     <%= f.label :id %><br />
     <%= @pdv.id %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= @pdv.nombre %>
   </div>
   <div class="field">
     <%= f.label :curt %><br />
@@ -56,9 +61,11 @@
   </div>
   <div class="field">
     <%= f.label :status_reg %><br />
-    
-    <%=  @pdv.status_reg unless current_user.is_admin?  %>
-    <%=  f.text_field :status_reg if current_user.is_admin? %>
+    <% if current_user.is_admin? %>
+    <%= f.select :status_reg, options_for_select(Pdv::STATUSR)  %>
+    <% else %>
+    <%= @pdv.status_reg %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :captura %><br />
@@ -74,7 +81,7 @@
   </div> -->
   <div class="field">
     <%= f.label :precision %><br />
-    <%= f.select :precision, options_for_select(Tienda::PRECISION) %>
+    <%= f.select :precision, options_for_select(Pdv::PRECISION) %>
   </div>
   <%= render 'captura' %>
    <div class="actions">

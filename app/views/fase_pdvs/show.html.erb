@@ -1,0 +1,112 @@
+<p id="notice"><%= notice %></p>
+  <%= render 'cadena' %>
+<p>
+  <b>Id:</b>
+  <%= @fase_pdv.id %>
+</p>
+
+<p>
+  <b>Curt:</b>
+  <%= @fase_pdv.curt %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @fase_pdv.nombre %>
+</p>
+
+<p>
+  <b>Calle:</b>
+  <%= @fase_pdv.calle %>
+</p>
+
+<p>
+  <b>No exterior:</b>
+  <%= @fase_pdv.no_exterior %>
+</p>
+
+<p>
+  <b>No interior:</b>
+  <%= @fase_pdv.no_interior %>
+</p>
+
+<p>
+  <b>Colonia:</b>
+  <%= @fase_pdv.colonia %>
+</p>
+
+<p>
+  <b>Cp:</b>
+  <%= @fase_pdv.cp %>
+</p>
+
+<p>
+  <b>Ref 1:</b>
+  <%= @fase_pdv.ref_1 %>
+</p>
+
+<p>
+  <b>Ref 2:</b>
+  <%= @fase_pdv.ref_2 %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @fase_pdv.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @fase_pdv.longitude %>
+</p>
+
+<p>
+  <b>Precision:</b>
+  <%= @fase_pdv.precision %>
+</p>
+
+<p>
+  <b>Municipio:</b>
+  <%= @fase_pdv.municipio.nombre %>
+</p>
+<p>
+  <b>Estado</b>
+  <%= Estado.find(@fase_pdv.municipio.id_estado).nombre %>
+
+</p>
+
+<p>
+  <b>Cadena:</b>
+  <%= @fase_pdv.cadena %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @fase_pdv.status %>
+</p>
+
+<p>
+  <b>Telefono 1:</b>
+  <%= @fase_pdv.telefono_1 %>
+</p>
+
+<p>
+  <b>Telefono 2:</b>
+  <%= @fase_pdv.telefono_2 %>
+</p>
+
+<p>
+  <b>Ciudad:</b>
+  <%= @fase_pdv.ciudad %>
+</p>
+
+<p>
+  <b>Status reg:</b>
+  <%= @fase_pdv.status_reg %>
+</p>
+
+<%= @fase_pdv.geocodificacion %>
+<%= gmaps4rails(@json) %>
+
+<%= link_to 'Edit', edit_fase_fase_pdv_url(@fase, @fase_pdv) %> |
+<%= link_to 'Back', fase_fase_pdvs_path(@fase, @fase_pdv) %>

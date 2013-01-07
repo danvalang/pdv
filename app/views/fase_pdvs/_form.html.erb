@@ -1,0 +1,90 @@
+<%= form_for(@fase_pdv) do |f| %>
+  <% if @fase_pdv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fase_pdv.errors.count, "error") %> prohibited this fase_pdv from being saved:</h2>
+
+      <ul>
+      <% @fase_pdv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= render 'cadena' %>
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= @fase_pdv.id %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= @fase_pdv.nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :curt %><br />
+    <%= @fase_pdv.curt %>
+  </div>
+   <div class="field">
+    <%= f.label "Direccion" %><br />
+    <%= @fase_pdv.geocodificacion %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_1 %><br />
+    <%= @fase_pdv.ref_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_2 %><br />
+    <%= @fase_pdv.ref_2 %>
+  </div>
+ 
+
+  <div class="field">
+    <%= f.label :cadena %><br />
+    <%= @fase_pdv.cadena %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= @fase_pdv.status %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_1 %><br />
+    <%= @fase_pdv.telefono_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_2 %><br />
+    <%= @fase_pdv.telefono_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br />
+    <%= @fase_pdv.ciudad %>
+  </div>
+  <div class="field">
+    <%= f.label :status_reg %><br />
+    <% if current_user.is_admin? %>
+    <%= f.select :status_reg, options_for_select(Pdv::STATUSR)  %>
+    <% else %>
+    <%= @fase_pdv.status_reg %>
+    <% end %>
+  </div>
+
+  <!--  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div> -->
+  <div class="field">
+    <%= f.label :precision %><br />
+    <%= f.select :precision, options_for_select(Pdv::PRECISION) %>
+  </div>
+  <%= render 'captura' %>
+   <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <%= gmaps4rails(@json) %>
+
+<% end %>

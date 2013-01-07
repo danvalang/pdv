@@ -1,5 +1,15 @@
 class SessionsController < ApplicationController
-  skip_before_filter :require_login
+  before_filter :require_login, except: :destroy
+
+  def require_login
+    if current_user
+      if current_user.is_admin
+        redirect_to fases_path
+      else
+        redirect_to pdvs_path
+      end
+    end
+  end
 
   def new
     render "new"
@@ -13,7 +23,11 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end
-      redirect_to root_url, :notice => "Logged in!"
+      if current_user.is_admin
+        redirect_to fases_path, :notice => "Logged in!"
+      else
+        redirect_to root_url, :notice => "Logged in!"
+      end
     else
       flash.notice = "Invalid email or password"
       render "new"

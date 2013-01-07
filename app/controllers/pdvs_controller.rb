@@ -1,20 +1,23 @@
 class PdvsController < ApplicationController
-  before_filter :fases_redirect
+  # before_filter :fases_redirect
 
 
-  def fases_redirect
-    if current_user
-      redirect_to fases_path if current_user.is_admin
-    end
-  end
+  # def fases_redirect
+  #   if current_user
+  #     redirect_to fases_path if current_user.is_admin
+  #   end
+  # end
 
   # GET /pdvs
   # GET /pdvs.json
   def index
 
 
-
-    @pdvs = Pdv.includes(:cadena, :captura).asignadas(current_user, params[:page] )
+    # unless current_user.is_admin
+      @pdvs = Pdv.includes(:cadena, :captura).asignadas(current_user, params[:page] )
+    # else
+       # @pdvs = Pdv.all
+    # end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +31,7 @@ class PdvsController < ApplicationController
   def show
 
     @pdv = Pdv.find(params[:id])
-    # @pdv.asegurar
+    @pdv.asegurar
     @json = @pdv.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
@@ -37,16 +40,16 @@ class PdvsController < ApplicationController
     end
   end
 
-  # GET /pdvs/new
-  # GET /pdvs/new.json
-  def new
-    @pdv = Pdv.new
+  # # GET /pdvs/new
+  # # GET /pdvs/new.json
+  # def new
+  #   @pdv = Pdv.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @pdv }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html # new.html.erb
+  #     format.json { render json: @pdv }
+  #   end
+  # end
 
   # GET /pdvs/1/edit
   def edit
@@ -61,22 +64,22 @@ class PdvsController < ApplicationController
     end
   end
 
-  # POST /pdvs
-  # POST /pdvs.json
-  def create
-    @pdv = Pdv.new(params[:pdv])
-    @pdv.status_reg = "NO REVISADO"
+  # # POST /pdvs
+  # # POST /pdvs.json
+  # def create
+  #   @pdv = Pdv.new(params[:pdv])
+  #   @pdv.status_reg = "NO REVISADO"
 
-    respond_to do |format|
-      if @pdv.save
-        format.html { redirect_to @pdv, notice: 'Pdv was successfully created.' }
-        format.json { render json: @pdv, status: :created, location: @pdv }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @pdv.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @pdv.save
+  #       format.html { redirect_to @pdv, notice: 'Pdv was successfully created.' }
+  #       format.json { render json: @pdv, status: :created, location: @pdv }
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @pdv.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /pdvs/1
   # PUT /pdvs/1.json

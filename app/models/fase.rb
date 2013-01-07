@@ -1,6 +1,6 @@
 class Fase < ActiveRecord::Base
-  has_many :capturas, foreign_key: "id_fase"
-  has_many :pdvs, through: :captura
+  has_many :capturas, foreign_key: "fase_id"
+  has_many :pdvs, through: :capturas
   belongs_to :user
   before_save :users
 
@@ -15,7 +15,7 @@ class Fase < ActiveRecord::Base
   end
 
   def users
-  	self.user_id = self.responsable.id
+  	self.user_id = User.where("nombre = ?",self.responsable)
   end
 
 

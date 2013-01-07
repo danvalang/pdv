@@ -5,20 +5,21 @@ class Pdv < ActiveRecord::Base
   belongs_to :cadena, foreign_key: :id_cadena
   has_one :captura
   has_one :fase, through: :captura
-  validates :precision, inclusion: { in: ["exacta","aproximada"]}
-  PRECISION = ["exacta","aproximada"]
-
-  scope :asignar, lambda {|numero| joins(:captura).where(latitude: nil).where(longitude: nil).order(municipio: :estado).first(numero)}
-  scope :asignadas, lambda {|user, pagina| joins(:fase).where("fases.user_id = ?", user.id ).where(latitude: nil).where(longitude: nil).page(pagina) }
-
 
   attr_accessible :calle, :ciudad, :colonia, :cp, :curt, :id, :latitude, :longitude, :no_exterior, :no_interior, :nombre, :precision, :ref_1, :ref_2, :status, :status_reg, :telefono_1, :telefono_2, :estado, :is_admin
 
+  validates :precision, inclusion: { in: ["exacta","aproximada"]}
+  validates :status_reg, inclusion: { in: ["LIBERADO", "NO REVISADO", "CLAUSURADO"]}
 
-  geocoded_by :geocodificacion, latitude:  :latitude, longitude: :longitude
+  PRECISION = ["exacta","aproximada"]
+  STATUSR = ["LIBERADO", "NO REVISADO", "CLAUSURADO"]
   after_create :asegurar
-  acts_as_gmappable lat: :latitude, lng: :longitude, address:  :geocodificacion,  process_geocoding: false
 
+  scope :asignar, lambda {|numero| joins(:captura).where(latitude: nil).where(longitude: nil).order(municipio: :estado).first(numero)}
+  scope :asignadas, lambda {|user, pagina| joins(:fase).where("fases.user_id = ?", user.id ).where(latitude: nil).where(longitude: nil).page(pagina) }
+    
+  acts_as_gmappable lat: :latitude, lng: :longitude, address:  :geocodificacion,  process_geocoding: false
+  geocoded_by :geocodificacion, latitude:  :latitude, longitude: :longitude
 
 
   def geocodificacion
